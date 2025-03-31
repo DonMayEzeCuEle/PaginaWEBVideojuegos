@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISOF GAMES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="Imagenes/ICONO.ico">
     <link rel="stylesheet" href="CSS/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="menu.js" defer></script>
+    <script src="js/menu.js" defer></script>
     <script src="carousel.js" defer></script>
 </head>
 <body>
@@ -36,9 +37,9 @@
     <div class="menu-overlay"></div>
     <div class="side-menu">
         <h2>USUARIO</h2>
-        <div class="menu-buttons">
-            <button class="login-btn">Iniciar sesión</button>
-            <button class="register-btn">Crear cuenta</button>
+        <div class="user-actions">
+            <button id="login-btn" class="user-btn">Iniciar Sesión</button>
+            <button id="register-btn" class="user-btn">Crear Usuario</button>
         </div>
     </div>
     
@@ -96,10 +97,38 @@
             </div>     
         </div>
     </main>
-    
-    
     <footer>
         <p>&copy; Equipo 3</p>
     </footer>
+
+    <script>
+        // Verificar estado de autenticación al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const userActions = document.querySelector('.user-actions');
+            
+            if (currentUser) {
+                // Mostrar información del usuario
+                userActions.innerHTML = `
+                    <span class="welcome-msg">Bienvenido, ${currentUser.username}</span>
+                    <button id="logout-btn" class="user-btn">Cerrar Sesión</button>
+                `;
+                
+                document.getElementById('logout-btn').addEventListener('click', function() {
+                    localStorage.removeItem('currentUser');
+                    location.reload();
+                });
+            } else {
+                // Configurar botones de autenticación
+                document.getElementById('login-btn').addEventListener('click', function() {
+                    window.location.href = 'usuario.html';
+                });
+                
+                document.getElementById('register-btn').addEventListener('click', function() {
+                    window.location.href = 'usuario.html#register';
+                });
+            }
+        });
+    </script>
 </body>
 </html>

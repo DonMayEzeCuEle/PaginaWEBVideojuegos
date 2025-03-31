@@ -78,4 +78,75 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Buscando:", searchInput.value);
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+        // Elementos del DOM
+        const menuBtn = document.getElementById('menu-btn');
+        const categoriesBtn = document.getElementById('categories-btn');
+        const sidebar = document.getElementById('sidebar');
+        const categoriesPanel = document.getElementById('categories-panel');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('overlay');
+        const searchBtn = document.querySelector('.search-btn');
+        const searchInput = document.querySelector('.search-input');
+        
+        // Abrir menú lateral
+        menuBtn.addEventListener('click', function() {
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+        });
+        
+        // Abrir panel de categorías
+        categoriesBtn.addEventListener('click', function() {
+            categoriesPanel.classList.add('open');
+            overlay.classList.add('active');
+        });
+        
+        // Cerrar menús
+        function closeAllMenus() {
+            sidebar.classList.remove('open');
+            categoriesPanel.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+        
+        // Eventos para cerrar
+        closeBtn.addEventListener('click', closeAllMenus);
+        overlay.addEventListener('click', closeAllMenus);
+        
+        // Buscar
+        searchBtn.addEventListener('click', function() {
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                alert(`Buscando: ${searchTerm}`);
+                // Aquí implementarías la búsqueda real
+            }
+        });
+        
+        // Buscar al presionar Enter
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Manejar clic en categorías
+        document.querySelectorAll('.categories-list a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const category = this.getAttribute('data-category');
+                alert(`Mostrando juegos de: ${category}`);
+                closeAllMenus();
+                // Aquí implementarías la carga de juegos por categoría
+            });
+        });
+        
+        // Cerrar al presionar Esc
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAllMenus();
+            }
+        });
+    });
+    
+
 });
+
