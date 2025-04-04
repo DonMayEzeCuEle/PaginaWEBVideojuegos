@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Luckiest+Guy&family=Nunito:wght@400;700&display=swap');
+/* ESTILOS EXISTENTES (no modificados) */
+body {
+   font-family: 'Oswald', sans-serif;;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f5e6;
+    text-align: center;
+}
+header {
+    background-color: #6ba58f;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.menu-btn, .category-btn, .search-box {
+    background-color: #9de0ba;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+.category-container {
+    position: relative;
+}
+.category-menu {
+    position: absolute;
+    top: 100%;
+    left: 10;
+    background-color: #9de0ba;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.category-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.category-menu li {
+    padding: 8px;
+    border-radius: 10px;
+    margin: 5px 0;
+    background-color: #6ba58f;
+    color: white;
+    cursor: pointer;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.game-box {
+    width: 150px;
+    height: 150px;
+    background-color: #6ba58f;
+    border-radius: 10px;
+}
+footer {
+    background-color: #6ba58f;
+    padding: 10px;
+    text-align: center;
+}
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    display: none;
+}
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: #6ba58f;
+    z-index: 999;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+}
+
+.side-menu.active {
+    left: 0; /* Muestra el menú */
+}
+
+.side-menu h2 {
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.menu-buttons button {
+    background-color: #9de0ba;
+    border: none;
+    padding: 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.menu-buttons button:hover {
+    background-color: #7bc79d;
+}
+body.menu-open {
+    overflow: hidden;
+}
+
+.game-grid {
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.game-item {
+    width: 180px;
+}
+
+.game-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #6ba58f;
+}
+
+.game-item p {
+    font-weight: 600;
+    color: #2a7f62;
+    margin-top: 8px;
+}
+
+.search-section {
+    background-color: #e8f4ec;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px auto;
+    max-width: 700px;
+}
+
+.slogan {
+    font-size: 1.2rem;
+    color: #6ba58f;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Estilos del carrusel */
+.game-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    max-width: 900px;
+    position: relative;
+}
+
+.carousel-container {
+    width: 80%; /* Ajusta el ancho del carrusel */
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 15px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    text-align: center;
+    flex: 0 0 calc(100% / 3); /* Muestra 3 elementos */
+}
+
+.carousel-slide img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-slide img:hover {
+    transform: scale(1.03);
+}
+
+.carousel-slide p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2a7f62;
+    font-size: 1.2rem;
+}
+
+.arrow-btn {
+    background-color: #cb4b1d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+.arrow-btn:hover {
+    background-color: #337335;
+}
+
+.cta-text {
+    text-align: center;
+    font-style: italic;
+    color: #6ba58f;
+    font-size: 1.3rem;
+    margin-top: 20px;
+}
+
+
+
+
+    .game-carousel {
+        width: 100vw; /* Ocupa todo el ancho de la ventana */
+        position: relative;
+        display: flex;
+        flex-direction: column; /* Para que las flechas queden abajo */
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 20px 0;
+    }
+
+    .contenedor-juegos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .contenedor {
+    display: flex;
+    justify-content: space-between;
+}
+.contenedor-juegos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 75%;
+}
+.carrusel {
+    width: 25%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Estilos para la pestaña de categoría */
+#category-tab {
+    width: 100%;
+    padding: 20px;
+}
+
+#back-button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: #3498db;
+}
+
+
+.game-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.game-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.play-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
