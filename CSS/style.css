@@ -359,3 +359,24 @@ h1{
     cursor: pointer;
     margin-top: 10px;
 }
+/* Efecto hover para imágenes en el grid */
+.game-item img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-item:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+/* Efecto hover para imágenes en el carrusel */
+.carousel-slide img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-slide:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
