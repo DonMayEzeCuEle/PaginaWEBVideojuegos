@@ -381,23 +381,3 @@ h1{
     cursor: pointer;
 }
 
-.category-menu {
-    max-height: 200px; /* Puedes ajustar este valor */
-    overflow-y: auto;
-    border: 1px solid #ccc; /* Opcional */
-    padding-right: 5px;
-}
-
-/* Scroll personalizado (opcional) */
-.category-menu::-webkit-scrollbar {
-    width: 6px;
-}
-
-.category-menu::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-}
-
-.category-menu::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
